@@ -16,10 +16,14 @@
       "page": "options.html"
     }, 
 
+    "icons" : {
+        "48" : "icons8-github-48.png", 
+        "96" : "icons8-github-96.png"
+    },
+
     "permissions":[
         "contextMenus", 
         "storage", 
-        "webNavigation",
         "https://api.github.com/"
     ]
 }

@@ -1,0 +1,31 @@
+<html>
+    <head><title>Options</title></head>
+    <!--
+        From: https://developer.chrome.com/extensions/options
+    -->
+    <body>
+        <h2>Issue Name Prefix</h2>
+        <p> 
+            When creating a branch from an issue, use the following prefix as part of the branch name.  
+            Defaults to the full user id.              
+            <br/>
+            <br/>
+            Branch name format:  <i>[PREFIX]-[ISSUE_NUMBER]-[ISSUE_TITLE]</i>
+            <br/>
+            <input type="text" id="issuePrefix"/>
+        </p>
+
+        <h2>Default Branches</h2>
+        <p> 
+            Provide a url for the source branch of each repo.  If not provided, master will be assumed.
+            <br/>
+            Example: https://github.com/USER/REPO_NAME/tree/master
+            <br/>
+            <textarea cols="80" rows="5" id="repoUrls"></textarea>
+        </p>
+
+        <div id="status"></div>
+        <button id="save">Save</button>        
+        <script src="options.js"></script>
+    </body>
+</html>

@@ -18,6 +18,7 @@ $ curl https://api.github.com/repos/btateyama/waffle_test/git/refs/heads/master
 
 # Create a reference
 https://developer.github.com/v3/git/refs/#create-a-reference
+https://gist.github.com/caspyin/2288960
 
 example POST
 ```
@@ -30,4 +31,9 @@ example POST
 curl post
 ```
 curl --user "btateyama:XXXXXXX" --data '{ "ref":"refs/heads/branchFromCurl", "sha":"f07fe11c9a33efb9a487b5b05eab99245d6cc90a" }' https://api.github.com/repos/btateyama/waffle_test/git/refs
+```
+
+OAuth
+``` 
+curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com/gists/starred
 ```

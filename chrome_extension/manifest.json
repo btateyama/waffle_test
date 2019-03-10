@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+
+    "name": "GitHub Stuff",
+    "version": "0.1",
+    "description": "Utils for GitHub",
+
+    "background": {
+        "scripts": ["content.js"],
+        "matches": ["https://github.com/*"]
+    },
+
+    "options_page": "options.html",
+    "options_ui": {
+      "chrome_style": true,
+      "page": "options.html"
+    }, 
+
+    "permissions":[
+        "contextMenus", 
+        "storage", 
+        "webNavigation",
+        "https://api.github.com/"
+    ]
+}

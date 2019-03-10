@@ -82,7 +82,7 @@ async function genericOnClick(info, tab) {
 
     if (branchName != null) {
         // get source sha
-        let srcInfo = await querySourceRef(ti.user, ti.repo, sourceBranch);
+        let srcInfo = await querySourceRef(ti.user, ti.repo, urlAuthToken, sourceBranch);
         console.log("srcInfo=",srcInfo);
         let sha = srcInfo.object.sha;
         //console.log("sha=[%s], urlAuthToken=[%s]", sha, urlAuthToken);
@@ -111,9 +111,16 @@ async function genericOnClick(info, tab) {
     }    
 }
 
-async function querySourceRef(user, repo, sourceBranch="master"){
+async function querySourceRef(user, repo, authToken, sourceBranch="master"){
     let sourceRef = "https://api.github.com/repos/" + user + "/" + repo + "/git/refs/heads/" + sourceBranch;
-    return await fetch(sourceRef).then((resp) => resp.json());
+    return await fetch(
+        sourceRef, 
+        {  
+            method: "GET",
+            headers: {
+                Authorization: "token " + authToken
+            }
+        }).then((resp) => resp.json());
 }
 
 async function createBranch(branchName, user, repo, sha, authToken){
